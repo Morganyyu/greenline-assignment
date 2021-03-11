@@ -89,7 +89,7 @@ function App() {
                 {state.purchaseRecord?.map(({ date, purchaseTotal }) => (
                     <p>
                         <span>Purchase Time: {date}</span> |
-                        <span>Purchase: Total: {purchaseTotal}</span>
+                        <span>Purchase Total: {purchaseTotal}</span>
                     </p>
                 ))}
                 <h3>Net Profit: {state.netProfit}</h3>
