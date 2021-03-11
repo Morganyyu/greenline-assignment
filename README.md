@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Greenline Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation Instructions
 
-## Available Scripts
+1. Clone this repo.
+2. `yarn install`
+3. `yarn start` to start developing on [http://localhost:3000](http://localhost:3000)
+4. `yarn test` to run basic tests
 
-In the project directory, you can run:
+### Version Requirements
 
-### `yarn start`
+```
+node: ^14.4.0,
+yarn: 1.22.5
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Bootstrapped with [Create React App with TypeScript template](https://create-react-app.dev/docs/adding-typescript/) which utilizes React v17 and TypeScript 4.
+No additional packages were installed, and no changes to the default scripts.
+For Statement Management, it is implemented with the `useReducer()` hook.
 
-### `yarn test`
+## Assignment Requirements Summary
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Core Requirement 
 
-### `yarn build`
+Build a program to calculate the total price at checkout for a customer, taking discounts into consideration.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Core Solution Summary
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A simple interface with 3 inputs for the 3 different fruits that allow their quantities to be increased or decreased as a whole integer, which updates the data in the component state according to the assignment example input expectation `[ ['grapes', 1], ['apples', 0], ['peaches', 1] ]`. The total with discount is calculated on Calculate Total button click, displaying a number representing the total price at checkout after discounts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Bonus Requirements and Solutions
 
-### `yarn eject`
+#### TypeScript
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Written in TS, with the default configurations and set up from Create React App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A suite of tests added for the assignment Input/Output Expections: 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+[ ['grapes', 1], ['apples', 0], ['peaches', 1] ] => 12
+[ ['grapes', 1], ['apples', 1], ['peaches', 1] ] => 15
+[ ['grapes', 2], ['apples', 2], ['peaches', 1] ] => 16.8
+[ ['grapes', 3], ['apples', 5], ['peaches', 2] ] => 36
+[ ['peaches', 7], ['grapes', 7], ['apples', 7] ] => 85.8
+```
 
-## Learn More
+#### State Management
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+With `useReducer`, a simple Admin Inventory display can be shown. On the Purchase action, it shows updated inventory, sold quantity, net profit, and a basic  purchase history with the date + time and the purchase total.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Improvements Needed
+
+1. Add styling with `styled-components`.
+2. Restructure the input data from arrays of arrays, to a simpler object of `{fruit: quantity, fruit: quantity}`. That is better for readability and reduces the amount of 'data manipulation'.
+3. Code refactoring with more isolated modules.
+
+### Additional Features with More Time Given
+
+1. Display remaining inventory for the Checkout Interface, and disable attempts to purchase quantity more than the inventory.
+2. Add more tests, as well as writing some DOM testing.
+3. UI for Admin to add/reduce inventory, edit prices, edit discount.
+4. Replace `useReducer` with redux if the project was to expand and become more complex for a better global state management.
